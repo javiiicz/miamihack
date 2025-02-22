@@ -1,5 +1,6 @@
 from manim import *
 import math as m
+import random as r
 
 RANGE_START = 0;
 RANGE_END = 2;
@@ -11,8 +12,8 @@ class Rotating3DAxis(ThreeDScene):
         # Set the y_range and z_range to suit the new function
         axes = ThreeDAxes(
             x_range=[RANGE_START, RANGE_END],  
-            y_range=[-m.e**2, m.e**2],  
-            z_range=[-9, 9],  
+            y_range=[-m.exp(RANGE_END), m.exp(RANGE_END)],  
+            z_range=[-m.exp(RANGE_END), m.exp(RANGE_END)],  
         )
         
         self.add(axes)
@@ -38,9 +39,10 @@ class Rotating3DAxis(ThreeDScene):
         self.wait()
         
         # Be careful to select a slice that is always within range
+        p = r.randrange(RANGE_START, RANGE_END)
         sliced_surface = Surface(
             lambda u, v: axes.c2p(u, m.exp(u) * np.cos(v), m.exp(u) * np.sin(v)), 
-            u_range=[1, 1.05], v_range=[0, TAU],
+            u_range=[p, p + 0.05], v_range=[0, TAU],
             resolution=(20, 40),
             fill_opacity=0.5, color=BLUE
         )
@@ -50,7 +52,7 @@ class Rotating3DAxis(ThreeDScene):
         # Create the radius line
         radius_line = Line(
             start=axes.c2p(1, 0, 0),  # Starting point at (1, 0, 0) on the slice
-            end=axes.c2p(1, m.exp(1) * np.cos(0), m.exp(1) * np.sin(0)),  # End point on the surface
+            end=axes.c2p(p, m.exp(1) * np.cos(0), m.exp(1) * np.sin(0)),  # End point on the surface
             color=RED
         )
         
