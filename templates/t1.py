@@ -32,7 +32,7 @@ class Rotating3DAxis(ThreeDScene):
         
         self.play(Create(surface, run_time=3))
         
-        self.play(Rotate(VGroup(axes, graph, surface), angle=2 * PI, axis=OUT, run_time=7, rate_func=linear))
+        self.play(Rotate(VGroup(axes, graph, surface), angle=2 * PI, axis=OUT, run_time=7, rate_func=smooth))
         
         # After rotating, select a slice and show radius
         self.wait()
@@ -67,7 +67,7 @@ class Rotating3DAxis(ThreeDScene):
         
         # Write the integral 
         # Change start and end with RANGE_START and RANGE_END
-        integral_label = MathTex(r"V = \int_0^2 \pi f(x)^2 dx")
+        integral_label = MathTex(r"V = \int_0^2 \pi r^2 dx")
         
         self.play(Write(integral_label))
         self.wait(2)
