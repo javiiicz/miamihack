@@ -3,6 +3,7 @@ import requests
 import json
 import base64
 
+latex_output = None
 app_id = "visualize_me_f97908_b55e94"
 app_key = "560f1a62008d03c970b565be9298bb462e57d596b95bcc140f8ed66d53a439bb"
 
@@ -59,6 +60,7 @@ def mathpix_latex(image_base64):
 
 
 def main():
+    global latex_output
     image_path = capture_image()
     if not image_path:
         return
@@ -75,6 +77,9 @@ def main():
 
     print("LaTeX Output:")
     print(latex_output)
+
+
+
 
 if __name__ == "__main__":
     main()
