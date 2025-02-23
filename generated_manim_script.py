@@ -66,8 +66,7 @@ class Rotating3DAxis(ThreeDScene):
         self.clear()
         
         # Write the integral 
-        # Change start and end with RANGE_START and RANGE_END
-        integral_label = MathTex(r"V = \int_0^4 \pi r^2 dx")
+        integral_label = MathTex(r"V = \int_{0}^{4} \pi r^2 dx")
         
         self.play(Write(integral_label))
         self.wait(2)
@@ -79,7 +78,7 @@ def main():
         "manim",
         "-pql",  # -p: preview, -ql: low quality
         #"-f",  ##full screen if needed
-        "practicefile.py",  
+        "generated_manim_script.py",  
     ]
     
     # Run the command
