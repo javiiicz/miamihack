@@ -60,6 +60,7 @@ def mathpix_latex(image_base64):
 
 
 def main():
+    global latex_output
     image_path = capture_image()
     if not image_path:
         return
@@ -76,7 +77,7 @@ def main():
 
     print("LaTeX Output:")
     print(latex_output)
-    
+
 
 
 

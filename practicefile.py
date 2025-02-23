@@ -1,5 +1,4 @@
 from manim import *
-
 import numpy as np
 import subprocess
 
@@ -58,7 +57,7 @@ class Rotating3DAxis(ThreeDScene):
         
         radius_label = MathTex("r = f(x)", color=RED).next_to(radius_line, RIGHT, buff=0.1)
         
-        self.move_camera(phi = 0, theta = -90 * DEGREES)
+        self.move_camera(phi=0, theta=-90 * DEGREES)
         self.play(Uncreate(surface, run_time=1))
         self.play(Write(radius_label, run_time=1))
         
@@ -66,13 +65,12 @@ class Rotating3DAxis(ThreeDScene):
         self.clear()
         
         # Write the integral 
-        # Change start and end with RANGE_START and RANGE_END
-        integral_label = MathTex(r"V = \int_0^4 \pi r^2 dx")
+        integral_label = MathTex(r"V = \int_{0}^{4} \pi r^2 dx")
         
         self.play(Write(integral_label))
         self.wait(2)
 
-
+##needs this 
 def main():
     #subprocess to call the manim command with the -p flag
     command = [
