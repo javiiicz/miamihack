@@ -2,10 +2,15 @@ import cv2
 import requests
 import json
 import base64
+from dotenv import load_dotenv
+import os
+
+load_dotenv(override=True)
 
 latex_output = None
-app_id = "visualize_me_f97908_b55e94"
-app_key = "560f1a62008d03c970b565be9298bb462e57d596b95bcc140f8ed66d53a439bb"
+app_id = "visualize_me_f97908_974b39"
+app_key = "7f912ac059244e00603256b50749807f5b41d8523bae9da2323ace5aa109681c"
+#os.getenv("MATHPIX_KEY")
 
 def capture_image():
     cap = cv2.VideoCapture(0)

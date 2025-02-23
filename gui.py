@@ -9,14 +9,14 @@ def on_button_click():
 root = tk.Tk()
 
 # Set the title
-root.title("Manify Math")
+root.title("Manimify Math")
 
 root.geometry("1280x720")
 
 frame = tk.Frame(root)
 frame.pack(expand=True)
 
-title_label = tk.Label(frame, text="Manify Math", font=("Cal Sans", 60))
+title_label = tk.Label(frame, text="Manimify Math", font=("Cal Sans", 60))
 title_label.pack(side="left")
 
 image = Image.open("logo.jpeg")

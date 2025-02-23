@@ -3,7 +3,7 @@ import cvlatex
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv(override=True)
 
 key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(
