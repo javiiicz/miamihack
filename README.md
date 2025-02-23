@@ -4,7 +4,7 @@ This project is an application that allows you to connect to you phone to analyz
 
 1. **Mathpix API**: For extracting LaTeX equations from images of math problems.
 2. **OpenAI API**: For generating Manim script templates based on the extracted LaTeX equations.
-3. **Manim**: For rendering the mathematical visualizations into high-quality videos.
+3. **Manim Open Source Library**: For rendering the mathematical visualizations into high-quality videos.
 
 ---
 
