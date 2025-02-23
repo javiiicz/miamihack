@@ -1,11 +1,11 @@
 from manim import *
 import math as m
 import random as r
+import subprocess
 
 
 RANGE_START = 1
 RANGE_END = 2
-
 class Rotating3DAxis(ThreeDScene):
     def construct(self):
         self.set_camera_orientation(phi=75 * DEGREES, theta=45 * DEGREES)
@@ -13,20 +13,20 @@ class Rotating3DAxis(ThreeDScene):
         # Set the y_range and z_range to suit the new function
         axes = ThreeDAxes(
             x_range=[RANGE_START - 1, RANGE_END + 1],  
-            y_range=[-(RANGE_END**2 + 2), (RANGE_END**2 + 2)],  
-            z_range=[-(RANGE_END**2 + 2), (RANGE_END**2 + 2)],  
+            y_range=[-(m.exp(RANGE_END)), (m.exp(RANGE_END))],  
+            z_range=[-(m.exp(RANGE_END)), (m.exp(RANGE_END))],  
         )
         
         self.add(axes)
         
         # Update the function being plotted
-        graph = axes.plot(lambda x: x**2 + 2, x_range=[RANGE_START, RANGE_END], color=YELLOW)  
+        graph = axes.plot(lambda x: m.exp(x), x_range=[RANGE_START, RANGE_END], color=YELLOW)  
         
         self.play(Create(graph, run_time=3))
         
         # Update the surface equation for the function
         surface = Surface(
-            lambda u, v: axes.c2p(u, (u**2 + 2) * np.cos(v), (u**2 + 2) * np.sin(v)), 
+            lambda u, v: axes.c2p(u, (m.exp(u)) * np.cos(v), (m.exp(u) * np.sin(v))), 
             u_range=[RANGE_START + 0.01, RANGE_END], v_range=[0, TAU],
             resolution=(20, 40),
             fill_opacity=0.5, color=BLUE
@@ -42,7 +42,7 @@ class Rotating3DAxis(ThreeDScene):
         # Be careful to select a slice that is always within range
         p = (RANGE_START + RANGE_END)/2
         sliced_surface = Surface(
-            lambda u, v: axes.c2p(u, (u**2 + 2) * np.cos(v), (u**2 + 2) * np.sin(v)), 
+            lambda u, v: axes.c2p(u, (m.exp(u)) * np.cos(v), (m.exp(u)) * np.sin(v)), 
             u_range=[p, p + 0.05], v_range=[0, TAU],
             resolution=(20, 40),
             fill_opacity=0.5, color=BLUE
@@ -53,7 +53,7 @@ class Rotating3DAxis(ThreeDScene):
         # Create the radius line
         radius_line = Line(
             start=axes.c2p(p, 0, 0),
-            end=axes.c2p(p, (p**2 + 2) * np.cos(0), (p**2 + 2) * np.sin(0)),  # End point on the surface
+            end=axes.c2p(p, (m.exp(p)) * np.cos(0), (m.exp(p)) * np.sin(0)),  # End point on the surface
             color=RED
         )
         
@@ -74,3 +74,4 @@ class Rotating3DAxis(ThreeDScene):
         
         self.play(Write(integral_label))
         self.wait(2)
+        

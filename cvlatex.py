@@ -53,7 +53,7 @@ def mathpix_latex(image_base64):
     }
     data = {
         "src": f"data:image/png;base64,{image_base64}",
-        "formats": ["latex_styled"]  
+        "formats": ["latex_styled", "text"]  
     }
     response = requests.post(url, headers=headers, data=json.dumps(data))
     return response.json()
@@ -69,14 +69,14 @@ def main():
 
     
     result = mathpix_latex(image_base64)
-    latex_output = result.get("latex_styled")
+    latex_output = result.get("text")
     if not latex_output:
         print("Error: Could not extract LaTeX from the image.")
         print("API Response:", result)  
         return
 
     print("LaTeX Output:")
-    print(latex_output)
+    return latex_output
 
 
 
