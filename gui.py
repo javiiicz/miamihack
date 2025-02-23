@@ -9,7 +9,7 @@ def on_button_click():
 root = tk.Tk()
 
 # Set the title
-root.title("Math Visualizer")
+root.title("Manify Math")
 
 root.geometry("1280x720")
 
