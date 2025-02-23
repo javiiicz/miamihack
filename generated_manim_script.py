@@ -1,0 +1,1 @@
+I can help you with that. Please provide me with the math problem so I can analyze it and make the necessary replacements in the Manim script.
