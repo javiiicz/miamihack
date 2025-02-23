@@ -1,6 +1,6 @@
 # MATH CUSTOMIZED VISUALIZER
 
-This project is an application that allows you to take a photo of a math problem, analyze it, and generate your very own Manim video, inspired by the goat 3b1b Grant Sanderson, to visualize complex concepts like the volume of a disk in calculus. We combined the following available technologies:
+This project is an application that allows you to connect to you phone to analyze your math problem, and generate your very own Manim video, inspired by the goat 3b1b Grant Sanderson, to visualize complex concepts like the volume of a disk in calculus. We combined the following available technologies:
 
 1. **Mathpix API**: For extracting LaTeX equations from images of math problems.
 2. **OpenAI API**: For generating Manim script templates based on the extracted LaTeX equations.
