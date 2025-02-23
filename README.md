@@ -1,4 +1,4 @@
-# Math Visualization Application
+# MATH CUSTOMIZED VISUALIZER
 
 This project is an application that allows you to take a photo of a math problem, analyze it, and generate your very own Manim video, inspired by the goat 3b1b Grant Sanderson, to visualize complex concepts like the volume of a disk in calculus. We combined the following available technologies:
 
